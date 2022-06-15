@@ -14,12 +14,12 @@ spec:
     spec:
       containers:
         - name: kedaexemplo
-          image: acrdemoptc.azurecr.io/kedaexemplo:latest
+          image: <#your_acr#>.azurecr.io/kedaexemplo:latest
           ports:
           - containerPort: 80
           env:
           - name: ServiceBus__Connection
-            value: "Endpoint=sb://csa-demo.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=ARIB8triKTuZSFdHnKk0MsxujOLjbnKiB1duyWK9byU="
+            value: "#service_bus_connectionstring#"
       imagePullSecrets:
         - name: secretkey
 ---

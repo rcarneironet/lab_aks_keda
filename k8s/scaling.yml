@@ -3,7 +3,7 @@ kind: Secret
 metadata:
   name: kedaexemploscaledobjectsecret
 data:
-  ServiceBusAzure: RW5kcG9pbnQ9c2I6Ly9jc2EtZGVtby5zZXJ2aWNlYnVzLndpbmRvd3MubmV0LztTaGFyZWRBY2Nlc3NLZXlOYW1lPVJvb3RNYW5hZ2VTaGFyZWRBY2Nlc3NLZXk7U2hhcmVkQWNjZXNzS2V5PUFSSUI4dHJpS1R1WlNGZEhuS2swTXN4dWpPTGpibktpQjFkdXlXSzlieVU9
+  ServiceBusAzure: #service_bus_base64_connectionstring#
 ---
 apiVersion: keda.sh/v1alpha1
 kind: TriggerAuthentication
@@ -22,12 +22,12 @@ metadata:
 spec:
   scaleTargetRef:
     name: kedaexemplo
-  minReplicaCount: 0
+  minReplicaCount: 1
   maxReplicaCount: 10
   triggers:
   - type: azure-servicebus
     metadata:
-      namespace: csa-demo
+      namespace: #aks_namespace
       queueName: kedafila
       messageCount: "5"
     authenticationRef:
