@@ -14,12 +14,12 @@ spec:
     spec:
       containers:
         - name: kedaexemplo
-          image: tdcdemoacr.azurecr.io/kedaexemplo:latest
+          image: #acr_name#.azurecr.io/container:latest
           ports:
           - containerPort: 80
           env:
           - name: ServiceBus__Connection
-            value: "Endpoint=sb://tdcdemosb.servicebus.windows.net/;SharedAccessKeyName=Ouvir;SharedAccessKey=tTERv+iHU7A99S3OBmvjJut7g4mLS3vKUUvvin4im8Q=;EntityPath=kedafila"
+            value: "service_bus_endpoint"
       imagePullSecrets:
         - name: secretkey
 ---
